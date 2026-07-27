@@ -40,11 +40,11 @@ struct Component;
 fn level_to_str(level: Level) -> &'static str {
     match level {
         Level::Critical => "critical",
-        Level::Error => "error",
-        Level::Warn => "warning",
-        Level::Info => "info",
-        Level::Debug => "debug",
-        Level::Trace => "trace",
+        Level::Error => "error   ",
+        Level::Warn => "warning ",
+        Level::Info => "info    ",
+        Level::Debug => "debug   ",
+        Level::Trace => "trace   ",
     }
 }
 
@@ -64,6 +64,9 @@ impl bindings::exports::wasi::logging::logging::Guest for Component {
         let level_str = level_to_str(level);
         let message = format!("{}: {}", level_str, message);
 
-        println(format!("{}: {} {}", context, now_rfc3399(), message), false);
+        println(
+            format!("{} {} {}: {}", now_rfc3399(), level_str, context, message),
+            false,
+        );
     }
 }
