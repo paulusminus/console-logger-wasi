@@ -57,7 +57,6 @@ fn now_rfc3399() -> String {
         timestamp.nanoseconds,
     );
     let timestamp = std::time::UNIX_EPOCH + duration;
-    // let timestamp = chrono::DateTime::<chrono::Utc>::from(timestamp);
     humantime::format_rfc3339(timestamp).to_string()
 }
 
