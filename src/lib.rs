@@ -1,3 +1,5 @@
+#![doc = include_str!("../README.md")]
+
 use std::fmt::Display;
 
 use bindings::exports::wasi::logging::logging::Level;
@@ -55,8 +57,8 @@ fn now_rfc3399() -> String {
         timestamp.nanoseconds,
     );
     let timestamp = std::time::UNIX_EPOCH + duration;
-    let timestamp = chrono::DateTime::<chrono::Utc>::from(timestamp);
-    timestamp.to_rfc3339()
+    // let timestamp = chrono::DateTime::<chrono::Utc>::from(timestamp);
+    humantime::format_rfc3339(timestamp).to_string()
 }
 
 impl bindings::exports::wasi::logging::logging::Guest for Component {

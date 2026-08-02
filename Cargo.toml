@@ -1,6 +1,6 @@
 [package]
 name = "console-logger-wasi"
-version = "0.1.0"
+version = "0.1.2"
 edition = "2024"
 
 [lib]
@@ -14,5 +14,5 @@ panic = "abort"
 opt-level = "s"
 
 [dependencies]
-chrono = "0.4.45"
+humantime = "2.4.0"
 wit-bindgen = { version = "0.60.0", features = ["async-spawn"] }
