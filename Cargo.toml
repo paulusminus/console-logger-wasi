@@ -1,10 +1,16 @@
 [package]
+authors = ["Paul Min"]
 description = "This wasm component writes log messages to the console. It implements the wasi:logging/logging interface."
 edition = "2024"
 license = "MIT"
 name = "console-logger-wasi"
 repository = "https://github.com/paulusminus/console-logger-wasi"
 version = "0.1.2"
+
+[package.metadata.oci]
+registry = "ghcr.io"
+namespace = "paulusminus/pm"
+name = "console-logger"
 
 [lib]
 crate-type = ["cdylib"]
